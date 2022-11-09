@@ -6,7 +6,7 @@ using TMPro;
 public class servo : MonoBehaviour
 {
     public HingeJoint servoHinge;
-    public float speed;
+    private float speed = 100;
     private int PID = 0;
     public float P;
     public float I;
@@ -52,10 +52,9 @@ public class servo : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Debug.Log(PID);
         if (PID == 1) 
         {
-            currentDist = Vector3.Distance(ball.transform.position, sensor.transform.position) - 2.15f;
+            currentDist = Vector3.Distance(ball.transform.position, sensor.transform.position) - 8.15f;
             error_curr = targetDist - currentDist;
 
 
@@ -64,6 +63,8 @@ public class servo : MonoBehaviour
             iterm += error_curr * I;
 
             control = pterm + dterm + iterm;
+
+            Debug.Log(control);
 
             Write(control);
 
@@ -128,12 +129,16 @@ public class servo : MonoBehaviour
     {
         PID = 1 - PID;
 
+        speed = 1000f;
+
         if (PID == 0)
         {
             JointLimits limits = servoHinge.limits;
             limits.min = -90;
             limits.max = 90;
             servoHinge.limits = limits;
+
+            speed = 100;
         }
     }
 }

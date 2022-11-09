@@ -21,6 +21,7 @@ public class Apply : MonoBehaviour
     public GameObject beam;
     public GameObject joint;
     public GameObject hinge2;
+    public GameObject target;
 
     public HingeJoint jointHinge;
     public HingeJoint THinge;
@@ -71,12 +72,18 @@ public class Apply : MonoBehaviour
         jointHinge.connectedBody = null;
         THinge.connectedBody = null;
 
+        target.transform.parent = null;
+
 
         Vector3 tempBeam = new Vector3(-1.2f - A, beam.transform.position.y, beam.transform.position.z);
         beam.transform.position = tempBeam;
 
         Vector3 tempServoPiller = new Vector3(22.3f - B, servoPiller.transform.position.y, servoPiller.transform.position.z);
         servoPiller.transform.position = tempServoPiller;
+
+        target.transform.position = new Vector3(targetDist - 10, 17.59f, -0.1f);
+
+        target.transform.parent = beam.transform;
 
         hinge2.transform.parent = beam.transform;
         LowArm.transform.parent = null;

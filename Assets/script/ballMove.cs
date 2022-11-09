@@ -8,7 +8,7 @@ public class ballMove : MonoBehaviour
     public GameObject beam;
 
     private float beamDegree;
-    private float speed = 10f;
+    private float speed = 1f;
 
 
     // Update is called once per frame
