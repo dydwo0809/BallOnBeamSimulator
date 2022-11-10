@@ -34,6 +34,13 @@ public class servo : MonoBehaviour
     public TMP_InputField D_input;
     public TMP_InputField target_input;
 
+    public TMP_Text currentDistText;
+    public TMP_Text ptermText;
+    public TMP_Text itermText;
+    public TMP_Text dtermText;
+    public TMP_Text controlText;
+
+
     private void Start()
     {
         JointLimits limits = servoHinge.limits;
@@ -48,6 +55,13 @@ public class servo : MonoBehaviour
         D = PlayerPrefs.GetFloat("D");
 
         targetDist = PlayerPrefs.GetFloat("targetDist");
+
+        currentDistText.color = Color.black;
+        ptermText.color = Color.black;
+        itermText.color = Color.black;
+        dtermText.color = Color.black;
+        controlText.color = Color.black;
+
     }
 
     private void FixedUpdate()
@@ -55,6 +69,7 @@ public class servo : MonoBehaviour
         if (PID == 1) 
         {
             currentDist = Vector3.Distance(ball.transform.position, sensor.transform.position) - 8.15f;
+            currentDist *= 10; //cm -> mm 단위 변환
             error_curr = targetDist - currentDist;
 
 
@@ -62,13 +77,25 @@ public class servo : MonoBehaviour
             dterm = (prevDist - currentDist) * D;
             iterm += error_curr * I;
 
-            control = pterm + dterm + iterm;
+            control = 1500 + pterm + dterm + iterm;
 
-            Debug.Log(control);
-
-            Write(control);
+            WriteMicroseconds(control);
 
             prevDist = currentDist;
+
+            currentDist = Mathf.Round(currentDist * 10) * 0.1f;
+            pterm = Mathf.Round(pterm * 10) * 0.1f;
+            iterm = Mathf.Round(iterm * 1000) * 0.001f;
+            dterm = Mathf.Round(dterm * 1000) * 0.001f;
+            control = Mathf.Round(control * 10) * 0.1f;
+
+            currentDistText.text = "" + currentDist;
+            ptermText.text = "" + pterm;
+            itermText.text = "" + iterm;
+            dtermText.text = "" + dterm;
+            controlText.text = "" + control;
+
+
         }
         else
         {
@@ -84,7 +111,17 @@ public class servo : MonoBehaviour
                 motor.targetVelocity = speed;
             }
             servoHinge.motor = motor;
+
+            currentDist = Vector3.Distance(ball.transform.position, sensor.transform.position) - 8.15f;
+            currentDist *= 10; //cm -> mm 단위 변환
+            currentDist = Mathf.Round(currentDist * 10) * 0.1f;
+            currentDistText.text = "" + currentDist;
         }
+    }
+    private void WriteMicroseconds(float duty)
+    {
+        float degree = 9 * duty / 50 - 270;
+        Write(degree);
     }
     
 
