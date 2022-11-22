@@ -81,7 +81,7 @@ public class Apply : MonoBehaviour
         Vector3 tempServoPiller = new Vector3(22.3f - B, servoPiller.transform.position.y, servoPiller.transform.position.z);
         servoPiller.transform.position = tempServoPiller;
 
-        target.transform.position = new Vector3(targetDist / 10 - 10, 17.59f, -0.1f);
+        target.transform.position = new Vector3(targetDist / 10 - 10, 23.5f, 0f);
 
         target.transform.parent = beam.transform;
 
