@@ -68,6 +68,8 @@ public class servo : MonoBehaviour
     {
         if (PID == 1) 
         {
+            targetDist = PlayerPrefs.GetFloat("targetDist");
+
             currentDist = Vector3.Distance(ball.transform.position, sensor.transform.position) - 8.15f;
             currentDist *= 10; //cm -> mm 단위 변환
             error_curr = targetDist - currentDist;
