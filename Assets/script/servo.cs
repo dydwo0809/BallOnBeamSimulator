@@ -79,7 +79,7 @@ public class servo : MonoBehaviour
             dterm = (prevDist - currentDist) * D;
             iterm += error_curr * I;
 
-            control = 1500 + pterm + dterm + iterm;
+            control = 1580 + pterm + dterm + iterm; //1580일때 수평
 
             WriteMicroseconds(control);
 
@@ -122,7 +122,7 @@ public class servo : MonoBehaviour
     }
     private void WriteMicroseconds(float duty)
     {
-        float degree = 9 * duty / 50 - 270;
+        float degree = 9 * duty / 100 - 135; //500 ~ 2500 범위 -> -90 ~ 90 보정
         Write(degree);
     }
     
