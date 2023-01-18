@@ -96,8 +96,6 @@ public class servo : MonoBehaviour
             itermText.text = "" + iterm;
             dtermText.text = "" + dterm;
             controlText.text = "" + control;
-
-
         }
         else
         {
@@ -118,6 +116,14 @@ public class servo : MonoBehaviour
             currentDist *= 10; //cm -> mm 단위 변환
             currentDist = Mathf.Round(currentDist * 10) * 0.1f;
             currentDistText.text = "" + currentDist;
+
+            currentDegree = lowArm.transform.eulerAngles.z;
+            if (currentDegree > 180)
+            {
+                currentDegree -= 360;
+            }
+            currentDegree = Mathf.Round(currentDegree * 10) * 0.1f;
+            controlText.text = "" + currentDegree;
         }
     }
     private void WriteMicroseconds(float duty)
