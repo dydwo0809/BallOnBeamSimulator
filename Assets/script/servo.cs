@@ -12,9 +12,9 @@ public class servo : MonoBehaviour
     public float I;
     public float D;
 
-    private float pterm = 0;
-    private float dterm = 0;
-    private float iterm = 0;
+    public float pterm = 0;
+    public float dterm = 0;
+    public float iterm = 0;
 
     private float currentDegree;
 
@@ -61,7 +61,6 @@ public class servo : MonoBehaviour
         itermText.color = Color.black;
         dtermText.color = Color.black;
         controlText.color = Color.black;
-
     }
 
     private void FixedUpdate()
