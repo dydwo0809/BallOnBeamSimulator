@@ -2527,7 +2527,7 @@ BoxCollider:
   m_GameObject: {fileID: 327970999}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -6115,10 +6115,9 @@ MonoBehaviour:
   DynamicP: {fileID: 1920064541}
   DynamicI: {fileID: 1923106239}
   DynamicD: {fileID: 327970999}
-  LengthP: 0
-  LengthI: 0
-  LengthD: 0
   PIDButton: {fileID: 1755067253}
+  ball: {fileID: 472476014}
+  beam: {fileID: 279151431}
 --- !u!1 &987337301
 GameObject:
   m_ObjectHideFlags: 0
@@ -10397,7 +10396,7 @@ BoxCollider:
   m_GameObject: {fileID: 1920064541}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -10494,7 +10493,7 @@ BoxCollider:
   m_GameObject: {fileID: 1923106239}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
