@@ -98,6 +98,10 @@ public class servo : MonoBehaviour
         }
         else
         {
+            pterm = 0;
+            iterm = 0;
+            dterm = 0;
+
             JointMotor motor = servoHinge.motor;
             motor.targetVelocity = 0;
 
