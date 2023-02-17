@@ -1991,7 +1991,7 @@ Canvas:
   m_GameObject: {fileID: 289183645}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
+  m_RenderMode: 1
   m_Camera: {fileID: 0}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
@@ -4340,7 +4340,7 @@ HingeJoint:
   m_Anchor: {x: 0, y: 0.45, z: 0}
   m_Axis: {x: 0, y: 0, z: 1}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0, y: 0, z: 0}
+  m_ConnectedAnchor: {x: 0.3625, y: -2.000006, z: 0}
   m_UseSpring: 0
   m_Spring:
     spring: 0
