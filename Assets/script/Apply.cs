@@ -34,7 +34,7 @@ public class Apply : MonoBehaviour
     private float P;
     private float I;
     private float D;
-    private float targetDist = 150;
+    private float targetDist = 155f;
 
     void Start()
     {
@@ -81,7 +81,7 @@ public class Apply : MonoBehaviour
         Vector3 tempServoPiller = new Vector3(22.3f - B, servoPiller.transform.position.y, servoPiller.transform.position.z);
         servoPiller.transform.position = tempServoPiller;
 
-        target.transform.position = new Vector3(targetDist / 10 - 10, 23.5f, 0f);
+        target.transform.position = new Vector3(targetDist / 10 - (9.2f + A) , 23.5f, 0f);
 
         target.transform.parent = beam.transform;
 

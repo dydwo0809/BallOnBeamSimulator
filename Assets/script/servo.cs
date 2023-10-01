@@ -18,8 +18,8 @@ public class servo : MonoBehaviour
 
     private float currentDegree;
 
-    private float targetDist;
-    private float currentDist;
+    public float targetDist;
+    public float currentDist;
     private float prevDist;
 
     private float error_curr;
