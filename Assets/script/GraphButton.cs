@@ -6,7 +6,7 @@ public class GraphButton : MonoBehaviour
 {
     public GameObject Graph;
 
-    int toggle = 1;
+    int toggle = 0;
 
     public void click()
     {
@@ -20,4 +20,6 @@ public class GraphButton : MonoBehaviour
         }
         toggle = 1 - toggle;
     }
+
+
 }
