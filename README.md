@@ -87,3 +87,5 @@ PID 기능을 키거나 끔, 처음 시작할 땐 꺼진 상태로 시작함
 사용한 외부 에셋:
 
 Fantasy Skybox FREE
+
+사실 정식 명칭은 Ball and Beam이 맞습니다.
